@@ -32,7 +32,7 @@
 
 双击【系统证书管理.lnk】
 
-![ban2](https://github.com/PIKACHUIM/Pika-BAT-App-BanCert/raw/master/helppng/ban2.png)
+![ban2](helppng/ban2.png)
 
 # 特别感谢
 
@@ -45,24 +45,24 @@
 ## 恶意安装
 ### 安徽 沙巴克
 **屏蔽原因：下载器恶意安装流氓软件，国内推广最猖狂的**
-![ban3](https://github.com/PIKACHUIM/Pika-BAT-App-BanCert/raw/master/helppng/ban3.png)
+![ban3](helppng/ban3.png)
 
 ## 恶意推广
 ### 160 驱动人生
 **屏蔽原因：篡改主页，篡改注册表，篡改安全软件，静默安装推广软件**
-![ban4](https://github.com/PIKACHUIM/Pika-BAT-App-BanCert/raw/master/helppng/ban4.png)
+![ban4](helppng/ban4.png)
 
 ### 功辉全部软件
 **屏蔽原因：双核浏览器，从未见过盗版还如此猖狂的公司，厉害厉害**
-![ban5](https://github.com/PIKACHUIM/Pika-BAT-App-BanCert/raw/master/helppng/ban5.png)
+![ban5](helppng/ban5.png)
 
 ### 上海展盟软件
 **屏蔽原因：全是广告**
-![ban6](https://github.com/PIKACHUIM/Pika-BAT-App-BanCert/raw/master/helppng/ban6.png)
+![ban6](helppng/ban6.png)
 
 ### 南京晨曦软件
 **屏蔽原因：全是推广**
-![ban7](https://github.com/PIKACHUIM/Pika-BAT-App-BanCert/raw/master/helppng/ban7.png)
+![ban7](helppng/ban7.png)
 
 ### 万能全部软件
 **屏蔽原因：全是广告，想钱想疯了**
