@@ -1814,5 +1814,5 @@ echo        ▇                                ▇
 echo        ▇       ***安装证书成功***       ▇
 echo        ▇                                ▇
 echo        ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
-timeout /t 1
+timeout /t 1 >NUL
 bans.exe

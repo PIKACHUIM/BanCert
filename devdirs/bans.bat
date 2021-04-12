@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCmDJNxYFMff2SdjZSrPHkqOS5cd5sv+/f6UnkkYQuY2apzn07eBLq4a6UqE
+::fBw5plQjdCuDJGmW+0g1Kw9ofA2JPWiyE7wR1Mfr6uS3sEIOaMA+dqzeyKCdHOQW/EHtZ4UR33lVloUFDxQ4
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,7 +26,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wGBJfTQeKKSuOA7YU5uf34O2e4m4SGq5/VJvfug==
 ::Zg8zqx1/OA3MEVWAtB9wGBJfTQeKKSuOA7YU5uf34O2e4m4SGq5/VJvfug==
 ::dhA7pRFwIByZRRkCIaO2+OjckcsG570/11qUHDV+OC8CR5p9
-::Zh4grVQjdCmDJNxYFMff2SdjZSrPHkqOS5cd5sv+/f6UnkkYQuY2apzni/qLOOVz
+::Zh4grVQjdCuDJGmW+0g1Kw9ofA2JPWiyE7wR1Mfr6uS3sEIOaMA+dqzeyKCdHOQW/EHtZ4UR1HtUi4UJFB44
 ::YB416Ek+ZW8=
 ::
 ::
@@ -71,7 +71,7 @@ echo        ¨~                                ¨~
 echo        ¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~¨~
 echo.
 echo.
-%~dp0wget.exe https://pikachuim.coding.net/p/pika-cod-pro-codings/d/WIN-BAT-BanCerts/git/raw/master/getlist/info.ini
+%~dp0wget.exe https://pikachuim.coding.net/p/pika-cod-pro-codings/d/BanCerts/git/raw/master/getlist/info.ini
 mkdir cert
 cd cert
 
