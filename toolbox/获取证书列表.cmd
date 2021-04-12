@@ -19,5 +19,5 @@ cd banlist
 dir /b /n /on >..\getlist\info.ini
 cd ..
 cd getlist
-(for /f "delims=" %%a in (info.ini) do echo https://pikachuim.coding.net/p/pika-cod-pro-codings/d/WIN-BAT-BanCerts/git/raw/master/banlist/%%a)>$
+(for /f "delims=" %%a in (info.ini) do echo https://pikachuim.coding.net/p/pika-cod-pro-codings/d/BanCerts/git/raw/master/banlist/%%a)>$
 move /y $ info.ini
