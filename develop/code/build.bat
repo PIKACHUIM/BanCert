@@ -31,6 +31,6 @@ echo.
 mkdir %file_path%
 cd %file_path%
 %pyinstaller% --clean -D "%~dp0\main.py" -F --workpath="%file_path%" --distpath="%file_path%\dist" --specpath="%file_path%"
-rd /s __pycache__ >nul
+rd /s /q __pycache__
 explorer "%file_path%\dist"
 timeout /t 600
