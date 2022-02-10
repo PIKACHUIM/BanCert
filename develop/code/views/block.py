@@ -21,13 +21,15 @@ class Block:
         show['maximum'] = 100  # 进度值最大值
         show['value'] = 0  # 进度值初始值
         button_all = Button(view, text='全选', width=8)
-        button_all.place(x=5, y=280)
+        button_all.place(x=5, y=283)
         button_not = Button(view, text='反选', width=8)
-        button_not.place(x=90, y=280)
-        button_exe = Button(view, text='禁止所选证书', width=20)
-        button_exe.place(x=5, y=320)
-        text_logs = Text(view, width=59, height=5)
-        text_logs.place(x=172, y=280)
+        button_not.place(x=90, y=283)
+        button_exe = Button(view, text='一键禁止所选证书', width=20)
+        button_exe.place(x=5, y=317)
+        button_del = Button(view, text='撤销禁止\n当前系统\n所有证书', width=8, height=3)
+        button_del.place(x=165, y=283)
+        text_logs = Text(view, width=49, height=5)
+        text_logs.place(x=240, y=280)
         text_logs.insert(INSERT, '')
         return view
 
