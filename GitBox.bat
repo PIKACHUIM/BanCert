@@ -160,7 +160,7 @@ echo             ▇       ***正在上传数据***       ▇
 echo             ▇                                ▇
 echo             ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
 git add .
-git commit -m "Updated"%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%
+git commit -m "Updated%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%"
 git push
 timeout /t 5   >nul
 goto LABEL_SUCC
