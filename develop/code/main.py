@@ -1,8 +1,8 @@
 from tkinter import *
 import tkinter
 import tkinter.ttk as ttk
-from views import block
-from views import clean
+from pages import block
+from pages import clean
 
 # 主窗口创建 ----------------------------------------
 if __name__ == '__main__':
@@ -30,7 +30,9 @@ if __name__ == '__main__':
     tabMain = ttk.Notebook()  # 创建分页栏
     tabMain.place(relx=0, rely=0, relwidth=1, relheight=0.96)
     # 将页插入分页栏中 ----------------------------------------
-    tabMain.add(block.Block.tab(tabMain), text='阻止运行')
-    tabMain.add(clean.Clean.tab(tabMain), text='恢复证书')
+    tabBlock = block.Block(tabMain)
+    tabClean = clean.Clean(tabMain)
+    tabMain.add(tabBlock.tab(tabMain), text='阻止运行')
+    tabMain.add(tabClean.tab(tabMain), text='证书提交')
     # 进入主消息循环 ------------------------------------------
     viewMain.mainloop()
