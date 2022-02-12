@@ -1,7 +1,5 @@
-import tkinter
 from tkinter import *
 from tkinter import scrolledtext
-
 from module import log
 from module import ban
 from module import get
@@ -34,6 +32,7 @@ class Block(views.View):
         self.path = get.get(url=self.text_links.get(), log=self.log)
         self.processbar['value'] = 50
         if self.path is not None:
+            self.list_certs.delete(0, END)
             temp_data = os.listdir(self.path)
             lens = 0
             self.processbar['value'] = 0
@@ -67,14 +66,14 @@ class Block(views.View):
                 self.list_certs.select_set(item)
 
     def action_del(self):
-        result = os.popen("copy /y bin\\clean.ps1 " + self.path).read()
-        self.log.log(result.replace("\n", " ")) if log is not None else 1
-        result = os.popen("powershell set-ExecutionPolicy RemoteSigned").read()
-        self.log.log(result.replace("\n", " ")) if log is not None else 1
-        result = os.popen("powershell -file " + self.path + "\\clean.ps1").read()
-        self.log.log(result.replace("\n", " ")) if log is not None else 1
-        result = os.popen("del /f /q " + self.path + "bin\\clean.ps1").read()
-        self.log.log(result.replace("\n", " ")) if log is not None else 1
+        result = os.popen("cmd /c bin\\pwsh.bat").read()
+        self.log.log(result) if log is not None else 1
+        result = os.popen("copy /y bin\\clean.ps1 " + self.path + "\\..\\").read()
+        self.log.log(result) if log is not None else 1
+        result = os.popen("powershell -NonInteractive -WindowStyle Hidden -NoProfile -file "
+                          + self.path + "\\..\\clean.ps1").read()
+        self.log.log(result) if log is not None else 1
+        self.log.log("执行完成!!!!!!!!!!!!!", "BLO")
 
     def tab(self, tabMain):
         # 获取列表标签 ------------------------------------
@@ -111,6 +110,7 @@ class Block(views.View):
         self.text_shows = scrolledtext.ScrolledText(self.view, width=49, height=5)
         self.text_shows.place(x=240, y=280)
         self.text_shows.insert(INSERT, '')
+        self.text_shows.configure(state='disabled')
         self.log = log.Log(self.text_shows)
         self.log.log()
         self.log.log("页面初始化完成!!!!!!!", "BLO")

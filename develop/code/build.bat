@@ -1,6 +1,6 @@
 RAM 请设置pyinstaller可执行文件位置
 set pyinstaller="E:\Venv\BanCerts\Scripts\pyinstaller.exe"
-set file_path="%temp%\pyinstaller-build-%date:~0,4%%date:~5,2%%date:~8,2%0%time:~1,1%%time:~3,2%%time:~6,2%"
+set file_path="%temp%\ban-cert\build\%date:~0,4%%date:~5,2%%date:~8,2%0%time:~1,1%%time:~3,2%%time:~6,2%"
 @echo off
 color 3f
 title PyInstaller构建工具

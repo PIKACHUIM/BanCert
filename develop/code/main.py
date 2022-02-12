@@ -32,7 +32,7 @@ if __name__ == '__main__':
     # 将页插入分页栏中 ----------------------------------------
     tabBlock = block.Block(tabMain)
     tabClean = clean.Clean(tabMain)
-    tabMain.add(tabBlock.tab(tabMain), text='阻止运行')
-    tabMain.add(tabClean.tab(tabMain), text='证书提交')
+    tabMain.add(tabBlock.tab(tabMain), text='阻止运行（禁用不受欢迎的软件）')
+    tabMain.add(tabClean.tab(tabMain), text='证书提交（向服务器举报不受欢迎的软件证书）')
     # 进入主消息循环 ------------------------------------------
     viewMain.mainloop()

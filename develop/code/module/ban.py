@@ -22,5 +22,4 @@ def ban_cert(in_path, in_name, log=None):
                         log.log(result.replace("\n", " "))
 
 
-if __name__ == '__main__':
-    ban_cert("C:\\Users\\Pika\\Desktop\\CERT", ['360'])
+
