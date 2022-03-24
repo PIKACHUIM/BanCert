@@ -220,7 +220,7 @@ class Clean(views.View):
         self.option_cp5.place(x=430, y=130)
         self.option_cp6 = Checkbutton(self.view, text="其他不受欢迎、流氓行为")
         self.option_cp6.place(x=430, y=150)
-        self.option_dat = Text(self.view, width=21, height=3)
+        self.option_dat = Text(self.view, width=21, height=2)
         self.option_dat.place(x=435, y=180)
         # 进度条 --------------------------------------------------------------
         self.processbar = ttk.Progressbar(self.view, length=587)

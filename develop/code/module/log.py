@@ -80,5 +80,6 @@ class Log:
                 path_logs = path_logs + "log.txt"
                 with open(path_logs, "a") as file:
                     file.write(full_logs)
+                    file.write("\n")
             # 返回完整信息 ------------------------------
             return full_logs

@@ -35,6 +35,8 @@ echo			8.[更新]从远程仓库下载分支
 echo.
 echo			9.[合并]合并两个独立的分支
 echo.
+echo			a.[添加]添加一个远程的仓库
+echo.
 echo			m.[合并]可视化合并冲突工具
 echo.
 echo			q.[退出]放弃修改并退出工具
@@ -62,6 +64,8 @@ if %sel%==0 (
   goto LABEL_8
 ) else if %sel%==9 (
   goto LABEL_9
+) else if %sel%==a (
+  goto LABEL_a
 ) else if %sel%==m (
   git mergetool
   goto LABEL_MENU
@@ -160,8 +164,9 @@ echo             ▇       ***正在上传数据***       ▇
 echo             ▇                                ▇
 echo             ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
 git add .
-git commit -m "Updated%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%"
+git commit -m "Updated"%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2%
 git push
+git push -u remote
 timeout /t 5   >nul
 goto LABEL_SUCC
 REM ###############################################################
@@ -530,6 +535,26 @@ git checkout %fz2%
 git merge --no-ff -m "分支合并于"%date:~0,4%%date:~5,2%%date:~8,2%%time:~0,2%%time:~3,2%%time:~6,2% %fz1%
 echo. 
 timeout /t 999
+goto LABEL_SUCC
+REM ###############################################################
+
+REM ###############################################################
+:LABEL_a
+cls
+color 8f
+echo.
+echo.
+echo             ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+echo             ▇                                ▇
+echo             ▇      ***添加远程仓库***        ▇
+echo             ▇                                ▇
+echo             ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+echo.
+echo ------------------------------------------------------------
+echo.
+set /p adrs=请输入地址（git@xxxxx.git）:
+git remote add remote %adrs%
+timeout /t 5  >nul
 goto LABEL_SUCC
 REM ###############################################################
 

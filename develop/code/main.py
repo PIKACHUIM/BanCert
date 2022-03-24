@@ -1,11 +1,23 @@
-from tkinter import *
+import os
 import tkinter
 import tkinter.ttk as ttk
+from module import log
 from pages import block
 from pages import clean
 
+
+# 清理缓存 ------------------------------------------
+def cleanCache(close=True):
+    logger = log.Log()
+    logger.log("正在清理缓存.........", "LOG")
+    os.system("rd /s/q %temp%\\ban-cert\\temp\\ 2>NUL 1>NUL")
+    if close:
+        viewMain.destroy()
+
+
 # 主窗口创建 ----------------------------------------
 if __name__ == '__main__':
+    cleanCache(False)
     viewMain = tkinter.Tk()
     viewMain.geometry("600x400")
     viewMain.title("PC软件代码签名证书限制工具")
@@ -35,4 +47,5 @@ if __name__ == '__main__':
     tabMain.add(tabBlock.tab(tabMain), text='阻止运行（禁用不受欢迎的软件）')
     tabMain.add(tabClean.tab(tabMain), text='证书提交（向服务器举报不受欢迎的软件证书）')
     # 进入主消息循环 ------------------------------------------
+    viewMain.protocol('WM_DELETE_WINDOW', cleanCache)
     viewMain.mainloop()

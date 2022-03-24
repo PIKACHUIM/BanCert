@@ -1,5 +1,8 @@
+import tkinter
 from tkinter import *
 from tkinter import scrolledtext
+
+import requests
 from module import log
 from module import ban
 from module import get
@@ -29,7 +32,12 @@ class Block(views.View):
 
     def action_get(self):
         self.processbar['value'] = 0
-        self.path = get.get(url=self.text_links.get(), log=self.log)
+        try:
+            self.path = get.get(url=self.text_links.get(), log=self.log)
+        except requests.exceptions.ConnectionError:
+            tkinter.messagebox.showerror(title='出错了！',
+                                         message='获取证书源失败，请检查网络或者修改证书源URL')
+            return False
         self.processbar['value'] = 50
         if self.path is not None:
             self.list_certs.delete(0, END)
@@ -50,7 +58,10 @@ class Block(views.View):
         self.processbar['value'] = 0
         for item in range(0, self.list_certs.size() + 1):
             lens = lens + 1
-            self.processbar['value'] = lens * 100 / self.list_certs.size()
+            try:
+                self.processbar['value'] = lens * 100 / self.list_certs.size()
+            except ZeroDivisionError:
+                return False
             if self.list_certs.select_includes(item):
                 data_path.append(self.list_certs.get(item))
         ban.ban_cert(self.path, data_path, self.log)
