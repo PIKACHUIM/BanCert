@@ -16,7 +16,7 @@ As we all know, software rogue promotion is almost everywhere, which is impossib
 
 By revoking the certificate of the corresponding software in the system and enabling UAC authentication, the tool can prevent the software of an organization from running. The software can be customized and batch shielded through the user-defined image source.
 
-![readme-1](picture/readme-1.png)
+![readme-1](Asserts/readme-1.png)
 
 ## 使用限制 / Requirement
 
