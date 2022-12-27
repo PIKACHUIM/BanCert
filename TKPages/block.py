@@ -1,3 +1,4 @@
+import time
 import tkinter
 from tkinter import *
 
@@ -32,7 +33,7 @@ class Block(views.View):
         self.path = ""
 
     def action_get(self):
-        self.processbar['value'] = 0
+        self.processbar['value'] = 10
         try:
             def sub_process():
                 self.path = get.get(url=self.text_links.get(), log=self.log)
@@ -43,11 +44,11 @@ class Block(views.View):
             tkinter.messagebox.showerror(title='出错了！',
                                          message='获取证书源失败，请检查网络或者修改证书源URL')
             return False
-        self.processbar['value'] = 50
 
         def deal_certs():
             while sub_process.is_alive():
-                pass
+                time.sleep(0.5)
+            self.processbar['value'] = 50
             if self.path is not None:
                 self.list_certs.delete(0, END)
                 temp_data = os.listdir(self.path)

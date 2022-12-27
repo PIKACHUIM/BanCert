@@ -104,7 +104,7 @@ class Clean(views.View):
             self.log.log(result)
             result = os.popen("copy /y " + file_path.replace("/", "\\") + " " + pathtp + "target.exe").read()
             self.log.log(result)
-            result = os.popen(pathtp + "\\run.bat").read()
+            result = os.popen(pathtp + "run.bat").read()
             self.log.log(result)
             result = os.popen("echo " + pathtp).read().replace("\n", "")
             file_sets = os.listdir(result)
@@ -150,6 +150,7 @@ class Clean(views.View):
         if len(self.certs_path) == 0:
             tkinter.messagebox.showerror("请先分析", "请先‘打开’文件并点击‘分析’")
         else:
+            msg = "未知错误"
             try:
                 file_path = self.certs_path.replace('"', '')
                 post_data = {
@@ -165,13 +166,18 @@ class Clean(views.View):
                 self.log.log("地址: " + self.text_links_text.get(), "POST")
                 post_rets = requests.post(self.text_links_text.get(),
                                           files=post_file)
-                post_text = json.loads(post_rets.text)
+                post_text = ""
+                try:
+                    post_text = json.loads(post_rets.text)
+                    msg = post_text['msg']
+                except json.decoder.JSONDecodeError:
+                    msg = post_text
             except Exception as e:
                 tkinter.messagebox.showerror("提交错误", "原因:" + str(e))
                 self.log.log("错误: " + str(e), "POST")
             else:
-                tkinter.messagebox.showinfo("提交完成", "返回结果:" + post_text['msg'])
-                self.log.log("返回: " + post_text['msg'], "POST")
+                tkinter.messagebox.showinfo("提交完成", "返回结果:" + msg)
+                self.log.log("返回: " + msg, "POST")
 
     def tab(self, tabMain):
         # 获取列表标签 ---------------------------------------------

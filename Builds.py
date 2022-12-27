@@ -9,14 +9,14 @@ files = []
 # TARGET
 target = Executable(
     script="Client.py",
-    # base="Win32GUI",
+    base="Win32GUI",
     icon="Asserts/favicon.ico"
 )
 
 # SETUP CX FREEZE
 setup(
     name="PC Software Code Signing Certificate Block Tool",
-    copyright=""
+    copyright="https://github.com/PIKACHUIM/BanCert/raw/master/LICENSE",
     version="2.0.0",
     description="PC软件代码签名证书限制工具",
     author="Pikachu I.M. https://github.com/PIKACHUIM/BanCert",
