@@ -41,7 +41,7 @@ By revoking the certificate of the corresponding software in the system and enab
 
 | 源名称                                          | 提供者 | 地域     | URL地址 |
 | ----------------------------------------------- | ------ | -------- | ------- |
-| Github直链 屏蔽中国大陆地区的一些不受欢迎的软件 | 皮卡丘 | 美国     |         |
+| Github直链 屏蔽中国大陆地区的一些不受欢迎的软件 | 皮卡丘 | 美国     |https://github.com/PIKACHUIM/BanCert/raw/master/certzip/cn-all.zip         |
 | Coding直链 屏蔽中国大陆地区的一些不受欢迎的软件 | 皮卡丘 | 中国大陆 |         |
 
 ##### 提交源的方法：在本页面提交issue，并在标题最前端加上#屏蔽源#，例如#屏蔽源#收录了一些弹窗广告证书
