@@ -92,7 +92,7 @@ class Block(views.View):
         self.label_urls.place(x=4, y=9)
         # 获取列表链接 ------------------------------------
         self.text_links = Entry(self.view, bd=3, width=60)
-        self.text_links.insert(0, "https://tool.52pika.cn/zip.zip")
+        self.text_links.insert(0, "https://github.com/PIKACHUIM/BanCert/raw/master/certzip/cn-all.zip")
         self.text_links.place(x=60, y=9)
         # 获取列表按钮 ------------------------------------
         self.button_get = Button(self.view, text='更新', width=11, command=self.action_get)
