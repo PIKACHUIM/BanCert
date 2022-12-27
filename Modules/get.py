@@ -4,11 +4,13 @@
 import os
 import hashlib
 import requests
+from tqdm import tqdm
 
 
 def get(url, log=None):
     try:
-        html = requests.get(url)
+        html = requests.get(url, stream=True)
+
     except requests.exceptions.MissingSchema as e:
         log.log("无法下载，错误: " + str(e), "GET")
         return None
@@ -41,6 +43,9 @@ def get(url, log=None):
         data_path = os.path.join(data_path, data_hash.hexdigest() + ".zip")
         with open(data_path, "wb+") as file:
             file.write(data_file)
+        # with open(data_path, "wb") as f:
+        #     for data in tqdm(html.iter_content(chunk_size=1024)):
+        #         f.write(data)
         # 文件解压 -------------------------------------------------------
         exec_path = os.path.join(path_text, "cache")
         exec_path = os.path.join(exec_path, data_hash.hexdigest())

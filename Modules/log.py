@@ -30,11 +30,14 @@ def cut(obj, sec):
     return data_main
 
 
-def dat(info, mod="MSG", level=0):
+def dat(info, mod="MSG", level=0, date=True):
     time_text = time.strftime("%y%m%d %H:%M:%S", time.localtime())
     temp_text = info.replace(" ", "").replace("\t", "")
     if len(temp_text) > 0:
-        return "[" + time_text + "][" + status[level] + "][" + mod + "]" + temp_text
+        if date:
+            return "[" + time_text + "][" + status[level] + "][" + mod + "]" + temp_text
+        else:
+            return "[" + mod + "]" + temp_text
     else:
         return None
 
@@ -46,16 +49,16 @@ class Log:
 
     # 调试输出 -------------------------------------------------
     def log(self,
-            info="---------------------",  # 消息内容
+            info="--------------------------------------------",
             # 模块编号 事件等级  分割长度  保留换行符
-            mod="MSG", level=0,  lens=21, line=True,
+            mod="MSG", level=0, lens=48, line=True,
             # 控制台输出 文件输出  文件输出的存储路径
             console=True, file=True, path="%temp%\\ban-cert\\"):
 
         # 窗口内部输出 ---------------------------------------
         data_text = cut(info, lens)
         for item in data_text:
-            main_text = dat(item.replace(" ", ""), mod, level)
+            main_text = dat(item, mod, level, False)
             if self.box is not None and main_text is not None:
                 self.box.configure(state='normal')
                 self.box.insert(INSERT, main_text + "\n")

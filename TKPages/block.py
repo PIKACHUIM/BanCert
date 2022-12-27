@@ -1,14 +1,15 @@
 import tkinter
 from tkinter import *
-from tkinter import scrolledtext
 
-import requests
 from Modules import log
 from Modules import ban
 from Modules import get
 from TKPages import views
-import os
+from tkinter import scrolledtext
 import tkinter.ttk as ttk
+import threading
+import requests
+import os
 
 
 class Block(views.View):
@@ -33,38 +34,48 @@ class Block(views.View):
     def action_get(self):
         self.processbar['value'] = 0
         try:
-            self.path = get.get(url=self.text_links.get(), log=self.log)
+            def sub_process():
+                self.path = get.get(url=self.text_links.get(), log=self.log)
+
+            sub_process = threading.Thread(target=sub_process, args=())
+            sub_process.start()
         except requests.exceptions.ConnectionError:
             tkinter.messagebox.showerror(title='出错了！',
                                          message='获取证书源失败，请检查网络或者修改证书源URL')
             return False
         self.processbar['value'] = 50
-        if self.path is not None:
-            self.list_certs.delete(0, END)
-            temp_data = os.listdir(self.path)
-            lens = 0
-            self.processbar['value'] = 0
-            for item in temp_data:
-                lens = lens + 1
-                self.processbar['value'] = 50 + lens * 50 / len(temp_data)
-                temp_path = os.path.join(self.path, item)
-                if not os.path.isdir(temp_path):
+
+        def deal_certs():
+            while sub_process.is_alive():
+                pass
+            if self.path is not None:
+                self.list_certs.delete(0, END)
+                temp_data = os.listdir(self.path)
+                lens = 0
+                self.processbar['value'] = 0
+                for item in temp_data:
+                    lens = lens + 1
+                    self.processbar['value'] = 50 + lens * 50 / len(temp_data)
+                    temp_path = os.path.join(self.path, item)
                     self.list_certs.insert(END, item)  # END表示每插入一个都是在最后一个位置
                     self.log.log(item)
 
+        del_process = threading.Thread(target=deal_certs, args=())
+        del_process.start()
+
     def action_exe(self):
         data_path = []
-        lens = 0
         self.processbar['value'] = 0
         for item in range(0, self.list_certs.size() + 1):
-            lens = lens + 1
-            try:
-                self.processbar['value'] = lens * 100 / self.list_certs.size()
-            except ZeroDivisionError:
-                return False
             if self.list_certs.select_includes(item):
                 data_path.append(self.list_certs.get(item))
-        ban.ban_cert(self.path, data_path, self.log)
+        sub_process = threading.Thread(target=ban.ban_cert,
+                                       args=(self.path,
+                                             data_path,
+                                             self.log,
+                                             self.processbar,
+                                             self.list_certs.size()))
+        sub_process.start()
 
     def action_all(self):
         self.list_certs.select_set(0, END)
