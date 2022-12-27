@@ -39,12 +39,13 @@ By revoking the certificate of the corresponding software in the system and enab
 
 ## 屏蔽源 / Repositories
 
-| 源名称                                          | 提供者 | 地域     | URL地址                                                                      |
-| ----------------------------------------------- | ------ | -------- |----------------------------------------------------------------------------|
-| Github直链 屏蔽中国大陆地区的一些不受欢迎的软件 | 皮卡丘 | 美国     | [点此访问](https://github.com/PIKACHUIM/BanCert/raw/master/certzip/cn-all.zip) |
-| Coding直链 屏蔽中国大陆地区的一些不受欢迎的软件 | 皮卡丘 | 中国大陆 |                                                                            |
+| 源名称    | 屏蔽说明               | 提供者 | 地域     | URL地址                                                                      |
+| ----------|--------------------| ------ | -------- |----------------------------------------------------------------------------|
+| Github直链| 屏蔽中国大陆地区的一些不受欢迎的软件 | 皮卡丘 | 美国     | [点此访问](https://github.com/PIKACHUIM/BanCert/raw/master/certzip/cn-all.zip) |
+| Coding直链| 屏蔽中国大陆地区的一些不受欢迎的软件 | 皮卡丘 | 中国大陆 | 暂时没有                                                                       |
 
-##### 提交源的方法：在本页面提交issue，并在标题最前端加上#屏蔽源#，例如#屏蔽源#收录了一些弹窗广告证书
+##### 欢迎通过提Issue来提交您的源，提交源的方法：在本页面提交issue，并在标题最前端加上#屏蔽源#，例如：
+#屏蔽源# 收录了一些弹窗广告证书
 
 ## 默认列表 / Default Block List
 
@@ -62,7 +63,7 @@ By revoking the certificate of the corresponding software in the system and enab
 
 ## 使用协议 / Agreement
 
-
+[GNU Affero General Public License v3.0](https://github.com/PIKACHUIM/BanCert/raw/master/LICENSE)
 
 ## 特别感谢 / Thanks
 
